@@ -12,23 +12,35 @@ import mne
 import numpy as np
 
 #list_fname = '/Volumes/TimeMachineBackups/MEG_Data/SASI/sentnew2a.lst'
+<<<<<<< HEAD
 # Odd number = session 1, Even number = session 2
 list_fname = '/Volumes/TimeMachineBackups/MEG_Data/SASI/sentnew2a_FishNew.lst'
 #list_fname = '/Volumes/TimeMachineBackups/MEG_Data/SASI/sentnew2b_FishNew.lst'
+=======
+list_fname = '/Volumes/TimeMachineBackups/MEG_Data/SASI/sentnew2a_FishNew.lst'
+>>>>>>> dcf4d606580048b88be0ee4055e6e022c5ef1d66
 
 list_info = parse_list(list_fname)
 list_info_temp = list_info
 
 
 
+<<<<<<< HEAD
 raw_fname = '/Volumes/TimeMachineBackups/MEG_Data/SASI/sasi_129/sasi_129_raw_tsss_mc.fif'
+=======
+raw_fname = '/Volumes/TimeMachineBackups/MEG_Data/SASI/sasi_101/sasi_101_raw_tsss_mc.fif'
+>>>>>>> dcf4d606580048b88be0ee4055e6e022c5ef1d66
 sentnew2_events, _ = extract_expyfun_events(raw_fname)[:2] # Takes 20 seconds
 # Format ids
 sentnew2_events[:, 2] += 10
 sentnew2_events_offset = np.zeros([1500,3], dtype=int)
 sentnew2_critical = np.zeros([1500,3], dtype=int)
 
+<<<<<<< HEAD
 fname_out = '/Volumes/TimeMachineBackups/MEG_Data/SASI/sasi_129/sentnew2a_FishNew-eve.lst'
+=======
+fname_out = '/Volumes/TimeMachineBackups/MEG_Data/SASI/sasi_101/sentnew2a_FishNew-eve.lst'
+>>>>>>> dcf4d606580048b88be0ee4055e6e022c5ef1d66
 #op.join(out_dir, 'ALL_' + (raw_fname) + '-eve.lst')
 mne.write_events(fname_out, sentnew2_events)
 
@@ -59,7 +71,11 @@ for sentence_count in range(0, 170):
             last_word = last_word + 1
             total_word_count = total_word_count + 1
 #fname_out_sentnew2a = '/Volumes/TimeMachineBackups/MEG_Data/SASI/sasi_107/sentnew2a-eve.lst'
+<<<<<<< HEAD
 fname_out_sentnew2 = '/Volumes/TimeMachineBackups/MEG_Data/SASI/sasi_129/sentnew2a_FishNew-eve.lst'
+=======
+fname_out_sentnew2 = '/Volumes/TimeMachineBackups/MEG_Data/SASI/sasi_101/sentnew2a_FishNew-eve.lst'
+>>>>>>> dcf4d606580048b88be0ee4055e6e022c5ef1d66
 mne.write_events(fname_out_sentnew2, sentnew2_events_offset)   
 
 stim_count = 0
@@ -91,9 +107,16 @@ for word_count in range(0, len(sentnew2_events_offset)):
 
 # write new events file
 # For mne-python
+<<<<<<< HEAD
 fname_out_offset = '/Volumes/TimeMachineBackups/MEG_Data/SASI/sasi_129/sasi_129_FishNew_critical-eve_rev_c.lst'
 mne.write_events(fname_out_offset, sentnew2_critical)
 # For brainstorm
 fname_out_offset = '/Volumes/TimeMachineBackups/MEG_Data/SASI/sasi_129/sasi_129_FishNew_critical-eve_rev_c.fif'
+=======
+fname_out_offset = '/Volumes/TimeMachineBackups/MEG_Data/SASI/sasi_101/sasi_101_FishNew_critical-eve_rev_c.lst'
+mne.write_events(fname_out_offset, sentnew2_critical)
+# For brainstorm
+fname_out_offset = '/Volumes/TimeMachineBackups/MEG_Data/SASI/sasi_101/sasi_101_FishNew_critical-eve_rev_c.fif'
+>>>>>>> dcf4d606580048b88be0ee4055e6e022c5ef1d66
 mne.write_events(fname_out_offset, sentnew2_critical)
 
